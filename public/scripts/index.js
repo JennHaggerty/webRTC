@@ -22,7 +22,6 @@ form.addEventListener("submit", (event) => {
 
 // send to server
 socket.emit("user_join", username);
-socket.emit("hello", "world");
 
 // receive from server
 socket.on("chat_message", (data) => {
