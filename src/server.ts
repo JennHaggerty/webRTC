@@ -4,14 +4,6 @@ import { createServer, Server as HTTPServer } from "http";
 import path from "path";
 
 require('dotenv').config({ path: __dirname+'/.env' });
-
-const generateUsername = () => {
-  const words = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"];
-  const randomIndex = Math.floor(Math.random() * words.length);
-  const randomWord = words[randomIndex];
-
-  return randomWord;
-}
  
 export class Server {
   private httpServer: HTTPServer;
@@ -49,10 +41,10 @@ export class Server {
       });
 
       // receive from client
-      socket.on("user_join", function() {
-          this.username = generateUsername();
+      socket.on("user_join", function(data) {
+          this.username = data;
           // send to client
-          socket.broadcast.emit("user_join", this.username);
+          socket.broadcast.emit("user_join", data);
       });
   
       socket.on("chat_message", function(data) {
@@ -61,7 +53,7 @@ export class Server {
       });
   
       socket.on("disconnect", function(data) {
-          socket.broadcast.emit("user_leave", this.username);
+          socket.broadcast.emit("user_leave", data);
       });
     });
   }
