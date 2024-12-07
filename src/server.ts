@@ -53,7 +53,7 @@ export class Server {
       });
   
       socket.on("disconnect", function(data) {
-          socket.broadcast.emit("user_leave", data);
+          socket.broadcast.emit("user_leave", this.username);
       });
     });
   }
