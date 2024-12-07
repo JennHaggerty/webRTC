@@ -52,7 +52,7 @@ export class Server {
           socket.broadcast.emit("chat_message", data);
       });
   
-      socket.on("disconnect", function(data) {
+      socket.on("disconnect", function() {
           socket.broadcast.emit("user_leave", this.username);
       });
     });

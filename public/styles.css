@@ -1,3 +1,6 @@
+h1 {
+  font-size: 18px;
+}
 
 body {
   margin: 0;
@@ -26,17 +29,18 @@ form input {
 
 form button {
   width: 6rem;
-  background-color: #1b8c00;
+  background-color: #0071bc;
   color: white;
   border: none;
   padding: 0.5rem;
   cursor: pointer;
   border-radius: 0.25rem;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 form button:hover {
-  background-color: #166d01;
+  background-color: #112e51;
 }
 
 .messages {
